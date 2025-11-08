@@ -20,16 +20,20 @@ app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`); 
 })
 
-app.post("/submit", async (req , res) => {
-    console.log("HIT"); 
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: process.env.GMAIL_APP_USEREMAIL,
+      pass: process.env.GMAIL_APP_PASSWORD,
+    },
+  });
 
-    const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: process.env.GMAIL_APP_USEREMAIL,
-          pass: process.env.GMAIL_APP_PASSWORD,
-        },
-      });
+app.get("/submit", (req, res) => {
+    res.sendFile(path.join(__dirname, "/public/index.html"));
+}
+)
+
+app.post("/submit", async (req , res) => {
 
     const email = req.body.email; 
     const name = req.body.name; 
