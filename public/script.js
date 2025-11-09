@@ -15,6 +15,5 @@ document.getElementById("myForm").addEventListener("submit", async(e) => {
         document.getElementById("validation").innerText = result.message;  
     }
     document.getElementById("validation").style.display = "block"; 
-    
-
 })
+
