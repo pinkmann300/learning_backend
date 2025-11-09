@@ -33,7 +33,6 @@ app.get("/submit", (req, res) => {
 )
 
 app.post("/submit", async (req , res) => {
-
     const email = req.body.email; 
     const name = req.body.name; 
 
@@ -59,4 +58,3 @@ app.post("/submit", async (req , res) => {
         })
     }
 })
-
